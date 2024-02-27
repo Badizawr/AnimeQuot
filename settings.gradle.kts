@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AnimeQuot"
 include(":app")
- 
+include(":domain")
