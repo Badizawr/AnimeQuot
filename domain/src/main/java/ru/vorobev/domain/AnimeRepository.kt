@@ -1,5 +1,5 @@
 package ru.vorobev.domain
 
-interface Repository {
+interface AnimeRepository {
     suspend fun loadQuot() : Pair<Boolean, String>
 }
