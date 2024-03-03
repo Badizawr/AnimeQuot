@@ -12,13 +12,13 @@ import ru.vorobev.domain.AnimeRepository
 class MainViewModel(
     private val repository : AnimeRepository
 ) : ViewModel(){
-    private val innerLiveData = MutableLiveData<String>()
-    val liveData: LiveData<String>
+    private val innerLiveData = MutableLiveData<Pair<Boolean, String>>()
+    val liveData: LiveData<Pair<Boolean, String>>
         get() = innerLiveData
     private val viewModelScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     fun load() {
         viewModelScope.launch {
-           val quote =  repository.loadQuot().second
+           val quote =  repository.loadQuot()
             innerLiveData.value = quote
         }
     }
